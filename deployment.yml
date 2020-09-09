@@ -15,5 +15,11 @@ spec:
       containers:
       - name: server
         image: httpd:2.4
+        env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: app-name
         ports:
         - containerPort: 80
