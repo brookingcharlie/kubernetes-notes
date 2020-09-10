@@ -13,3 +13,7 @@ spec:
           serviceName: web
           servicePort: 80
         path: /web/(.*)
+      - backend:
+          serviceName: metabase
+          servicePort: 3000
+        path: /meta/(.*)
