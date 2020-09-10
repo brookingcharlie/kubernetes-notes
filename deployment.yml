@@ -21,5 +21,21 @@ spec:
             configMapKeyRef:
               name: app-config
               key: app-name
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: password
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: secret-volume
+            mountPath: /etc/config
+            readOnly: true
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: app-secret
+            items:
+            - key: password
+              path: password
