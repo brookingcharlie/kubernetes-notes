@@ -16,4 +16,12 @@ spec:
       - backend:
           serviceName: metabase
           servicePort: 3000
-        path: /meta/(.*)
+        path: /metabase/(.*)
+      - backend:
+          serviceName: elasticsearch-master
+          servicePort: 9200
+        path: /elasticsearch/(.*)
+      - backend:
+          serviceName: kibana-kibana
+          servicePort: 5601
+        path: /kibana/(.*)
