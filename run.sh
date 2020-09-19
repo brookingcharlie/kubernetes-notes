@@ -16,5 +16,5 @@ kubectl apply -f service.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/cloud/deploy.yaml
 kubectl apply -f ingress.yaml
 ## to see metrics
-#kubectl port-forward -n ingress-nginx pod/ingress-nginx-controller-859989d5f6-947w5 10254:10254
+#kubectl port-forward -n ingress-nginx $(kubectl get pod -n ingress-nginx -l app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}') 10254:10254
 #curl http://kubernetes.docker.internal:10254/metrics
