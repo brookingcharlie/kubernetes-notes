@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dockercoins
+  labels:
+    app: dockercoins
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: 'swagger-stats/metrics'
+    prometheus.io/port: '80'
+spec:
+  containers:
+  - name: webui
+    image: rotcaus/dockercoins_webui:v3
+    ports:
+    - containerPort: 80
