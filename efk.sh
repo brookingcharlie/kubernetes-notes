@@ -18,4 +18,3 @@ helm install fluent-bit stable/fluent-bit \
 # /elasticsearch/(.*) -> elasticsearch-master:9200
 # /kibana/(.*) -> kibana-kibana:5601
 kubectl apply -f ingress.yaml
-kubectl apply -f ingress.yaml
