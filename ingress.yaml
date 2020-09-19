@@ -25,3 +25,15 @@ spec:
           serviceName: kibana-kibana
           servicePort: 5601
         path: /kibana/(.*)
+      - backend:
+          serviceName: fluent-bit-metrics
+          servicePort: 2020
+        path: /fluent-bit-metrics/(.*)
+      #- backend:
+      #    serviceName: kube-prometheus-stack-prometheus
+      #    servicePort: 9090
+      #  path: /prometheus/(.*)
+      #- backend:
+      #    serviceName: kube-prometheus-stack-grafana
+      #    servicePort: 80
+      #  path: /grafana/(.*)
