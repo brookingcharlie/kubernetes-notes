@@ -1,3 +1,6 @@
+kubectl apply -f counter.yaml
+kubectl logs -f counter
+
 helm repo add elastic https://helm.elastic.co
 
 helm install elasticsearch elastic/elasticsearch \
