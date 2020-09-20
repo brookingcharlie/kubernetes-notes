@@ -19,12 +19,12 @@ spec:
         - name: APP_NAME
           valueFrom:
             configMapKeyRef:
-              name: app-config
+              name: web
               key: app-name
         - name: PASSWORD
           valueFrom:
             secretKeyRef:
-              name: app-secret
+              name: web
               key: password
         ports:
         - containerPort: 80
@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: secret-volume
           secret:
-            secretName: app-secret
+            secretName: web
             items:
             - key: password
               path: password

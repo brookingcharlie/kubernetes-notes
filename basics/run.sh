@@ -9,12 +9,13 @@ brew link --overwrite kubernetes-cli
 brew install minikube
 
 kubectl apply -f configmap.yaml
-kubectl create secret generic app-secret --from-literal=password=helloWorld42+
+kubectl create secret generic web --from-literal=password=helloWorld42+
 kubectl apply -f deployment.yaml
 kubectl exec deploy/web -- bash -c 'echo $APP_NAME'
 kubectl exec deploy/web -- bash -c 'echo $PASSWORD'
 kubectl exec deploy/web -- bash -c 'cat /etc/config/password'
 kubectl apply -f service.yaml
+kubectl port-forward service/web 8080:80
 
 #brew install helm
 #helm repo add stable https://kubernetes-charts.storage.googleapis.com
