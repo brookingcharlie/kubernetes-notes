@@ -28,8 +28,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 # If on minikube:
 minikube addons enable ingress
 # Using Helm:
+kubectl create namespace ingress-nginx
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm install ingress-nginx ingress-nginx/ingress-nginx
+helm install ingress-nginx ingress-nginx/ingress-nginx -n ingress-nginx
 
 kubectl apply -f ingress.yaml
 
