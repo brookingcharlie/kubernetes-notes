@@ -14,7 +14,6 @@ kubectl apply -f deployment.yaml
 kubectl exec deploy/web -- bash -c 'echo $APP_NAME'
 kubectl exec deploy/web -- bash -c 'echo $PASSWORD'
 kubectl exec deploy/web -- bash -c 'cat /etc/config/password'
-
 kubectl apply -f service.yaml
 
 #brew install helm
@@ -22,7 +21,7 @@ kubectl apply -f service.yaml
 #helm search repo metabase
 #helm install metabase stable/metabase
 
-# Installing ingress-nginx (see https://kubernetes.github.io/ingress-nginx/deploy/)
+# Install ingress-nginx (see https://kubernetes.github.io/ingress-nginx/deploy/)
 # If on Docker for Mac:
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/cloud/deploy.yaml
 # If on minikube:
