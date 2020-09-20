@@ -1,0 +1,53 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /web/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: web
+            port:
+              number: 80
+      #- path: /elasticsearch/(.*)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: elasticsearch-master
+      #      port:
+      #        number: 9200
+      #- path: /kibana/(.*)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: kibana-kibana
+      #      port:
+      #        number: 5601
+      #- path: /fluent-bit-metrics/(.*)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: fluent-bit-metrics
+      #      port:
+      #        number: 2020
+      #- path: /prometheus/(.*)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: kube-prometheus-stack-prometheus
+      #      port:
+      #        number: 9090
+      #- path: /grafana/(.*)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: kube-prometheus-stack-grafana
+      #      port:
+      #        number: 80
