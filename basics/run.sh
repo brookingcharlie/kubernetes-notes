@@ -34,6 +34,6 @@ helm install ingress-nginx ingress-nginx/ingress-nginx -n ingress-nginx
 
 kubectl apply -f ingress.yaml
 
-## to see metrics
-#kubectl port-forward -n ingress-nginx $(kubectl get pod -n ingress-nginx -l app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}') 10254:10254
-#curl http://kubernetes.docker.internal:10254/metrics
+# to see metrics
+kubectl port-forward -n ingress-nginx $(kubectl get pod -n ingress-nginx -l app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}') 10254:10254
+curl http://kubernetes.docker.internal:10254/metrics
