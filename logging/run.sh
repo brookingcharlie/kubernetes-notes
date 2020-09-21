@@ -10,8 +10,7 @@ helm install elasticsearch elastic/elasticsearch \
 --set resources=null
 
 helm install kibana elastic/kibana \
---set resources=null \
---set 'extraEnvs[0].name=SERVER_BASEPATH,extraEnvs[0].value=/kibana'
+--set resources=null
 
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm install fluent-bit stable/fluent-bit \
@@ -21,9 +20,11 @@ helm install fluent-bit stable/fluent-bit \
 
 #helm install fluentd stable/fluentd --set output.host=elasticsearch-master
 
-# /elasticsearch/(.*) -> elasticsearch-master:9200
-# /kibana/(.*) -> kibana-kibana:5601
-kubectl apply -f ../basics/ingress.yaml
+# These won't work until you configure path prefixes in the helm installs.
+# It would be better to have helm create ingresses on different hosts with root path but neeed DNS for that.
+## /elasticsearch/(.*) -> elasticsearch-master:9200
+## /kibana/(.*) -> kibana-kibana:5601
+#kubectl apply -f ../basics/ingress.yaml
 
 kubectl port-forward $(kubectl get pod -l app=kibana -o jsonpath='{.items[0].metadata.name}') 5601:5601
 open http://localhost:5601/

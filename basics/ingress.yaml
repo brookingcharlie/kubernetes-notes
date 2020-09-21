@@ -14,21 +14,21 @@ spec:
           servicePort: 80
         path: /web/(.*)
       - backend:
-          serviceName: metabase
-          servicePort: 3000
-        path: /metabase/(.*)
-      - backend:
-          serviceName: elasticsearch-master
-          servicePort: 9200
-        path: /elasticsearch/(.*)
-      - backend:
-          serviceName: kibana-kibana
-          servicePort: 5601
-        path: /kibana/(.*)
-      - backend:
-          serviceName: fluent-bit-metrics
-          servicePort: 2020
-        path: /fluent-bit-metrics/(.*)
+      #    serviceName: metabase
+      #    servicePort: 3000
+      #  path: /metabase/(.*)
+      #- backend:
+      #    serviceName: elasticsearch-master
+      #    servicePort: 9200
+      #  path: /elasticsearch/(.*)
+      #- backend:
+      #    serviceName: kibana-kibana
+      #    servicePort: 5601
+      #  path: /kibana/(.*)
+      #- backend:
+      #    serviceName: fluent-bit-metrics
+      #    servicePort: 2020
+      #  path: /fluent-bit-metrics/(.*)
       #- backend:
       #    serviceName: kube-prometheus-stack-prometheus
       #    servicePort: 9090
