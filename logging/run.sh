@@ -1,3 +1,5 @@
+#!/bin/bash
+
 kubectl apply -f counter.yaml
 kubectl logs -f counter
 
@@ -22,3 +24,9 @@ helm install fluent-bit stable/fluent-bit \
 # /elasticsearch/(.*) -> elasticsearch-master:9200
 # /kibana/(.*) -> kibana-kibana:5601
 kubectl apply -f ../basics/ingress.yaml
+
+kubectl port-forward $(kubectl get pod -l app=kibana -o jsonpath='{.items[0].metadata.name}') 5601:5601
+open http://localhost:5601/
+
+kubectl port-forward $(kubectl get pod -l app=elasticsearch-master -o jsonpath='{.items[0].metadata.name}') 9200:9200
+open http://localhost:9200/
