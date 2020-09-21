@@ -5,7 +5,7 @@ metadata:
   labels:
     app: dockercoins
   annotations:
-    prometheus.io/scrape: "true"
+    prometheus.io/scrape: 'true'
     prometheus.io/path: 'swagger-stats/metrics'
     prometheus.io/port: '80'
 spec:
